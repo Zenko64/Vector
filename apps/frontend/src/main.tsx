@@ -1,11 +1,12 @@
 import { createRoot } from "react-dom/client";
 import "./assets/css/main.css"
+import { Button } from "./components/ui/button";
 
 function App() {
     return (
-        <h1 className="text-cyan-400 text-4xl font-bold">
+        <Button>
             Hello, World!
-        </h1>
+        </Button>
     )
 }
 
