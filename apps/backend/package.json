@@ -1,10 +1,13 @@
 {
-  "name": "backend",
+  "name": "@vector/backend",
   "module": "index.ts",
   "type": "module",
   "private": true,
   "scripts": {
     "dev": "bun --watch src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "latest"
   },
   "devDependencies": {
     "@types/bun": "latest"

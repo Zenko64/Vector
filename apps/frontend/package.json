@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@vector/frontend",
   "module": "index.ts",
   "type": "module",
   "private": true,
