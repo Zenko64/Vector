@@ -1,5 +1,5 @@
 {
-  "name": "vector",
+  "name": "foxfire",
   "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "turbo dev",

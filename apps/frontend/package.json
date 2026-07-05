@@ -1,6 +1,6 @@
 {
-  "name": "@vector/frontend",
-  "module": "index.ts",
+  "name": "@foxfire/frontend",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
   "scripts": {
