@@ -26,6 +26,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@electric-sql/pglite": "^0.5.4",
     "prettier": "^3.9.4",
     "turbo": "^2.10.3"
   }
