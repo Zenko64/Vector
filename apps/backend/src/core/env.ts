@@ -6,7 +6,7 @@ const envSchema = z.object({
     .string()
     .default("4000")
     .transform(Number)
-    .refine((val) => val > 0 && val < 65536, {
+    .refine((val: number) => val > 0 && val < 65536, {
       message: "The Port Number Is Invalid.",
     }),
   DATABASE_URL: z

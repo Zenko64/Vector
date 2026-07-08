@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: "docker.io/library/postgres:alpine"
+    environment:
+      POSTGRES_PASSWORD: "${PG_PASS}"
+    ports:
+      - 5432:5432
+    volumes:
+      - pg_data:/var/lib/postgresql:Z
+
+  redis:
+    image: "docker.io/library/redis:alpine"
+    ports:
+      - 6379:6379
+    volumes:
+      - redis_data:/data:Z
+
+volumes:
+  pg_data:
+  redis_data:
