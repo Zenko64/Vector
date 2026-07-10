@@ -1,23 +1,23 @@
 import z from "zod";
 
 const envSchema = z.object({
-  HOST: z.string().default("127.0.0.1"),
-  PORT: z
-    .string()
-    .default("4000")
-    .transform(Number)
-    .refine((val: number) => val > 0 && val < 65536, {
-      message: "The Port Number Is Invalid.",
-    }),
-  DATABASE_URL: z
-    .string()
-    .min(1, "The PostgreSQL Connection URL Is Missing In The .env"),
-  REDIS_URL: z
-    .string()
-    .min(1, "The Redis Connection URL Is Missing In The .env"),
-  NODE_ENV: z
-    .enum(["development", "production", "test"])
-    .default("development"),
+	HOST: z.string().default("127.0.0.1"),
+	PORT: z
+		.string()
+		.default("4000")
+		.transform(Number)
+		.refine((val: number) => val > 0 && val < 65536, {
+			message: "The Port Number Is Invalid.",
+		}),
+	DATABASE_URL: z
+		.string()
+		.min(1, "The PostgreSQL Connection URL Is Missing In The .env"),
+	REDIS_URL: z
+		.string()
+		.min(1, "The Redis Connection URL Is Missing In The .env"),
+	NODE_ENV: z
+		.enum(["development", "production", "test"])
+		.default("development"),
 });
 
 export const env = envSchema.parse(process.env);
