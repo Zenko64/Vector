@@ -1,7 +1,7 @@
 import { HomeIcon, KeyIcon, Mail } from "lucide-react";
 import "@/assets/css/navbar.css";
 import { useNavigate } from "react-router";
-import { LoginForm } from "./Login";
+import { LoginDialog } from "./login/Dialog";
 import { Button } from "./ui/button";
 import { Dialog, DialogTrigger } from "./ui/dialog";
 
@@ -43,7 +43,7 @@ export function Navbar() {
 							</Button>
 						}
 					/>
-					<LoginForm />
+					<LoginDialog />
 				</Dialog>
 			</span>
 		</nav>

@@ -15,6 +15,7 @@ const envSchema = z.object({
 	REDIS_URL: z
 		.string()
 		.min(1, "The Redis Connection URL Is Missing In The .env"),
+	FRONTEND_URL: z.string().default("http://localhost:5173"),
 	NODE_ENV: z
 		.enum(["development", "production", "test"])
 		.default("development"),

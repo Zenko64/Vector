@@ -19,5 +19,12 @@
 				"noUnusedFunctionParameters": "warn"
 			}
 		}
+	},
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
 	}
 }
