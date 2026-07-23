@@ -25,8 +25,7 @@ export function Login({ onSuccess }: { onSuccess?: () => void }) {
 		e.preventDefault();
 
 		if (step === "email") {
-			await form.trigger("email");
-			setStep("password");
+			if (await form.trigger("email")) setStep("password");
 			return;
 		}
 

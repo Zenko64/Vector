@@ -1,5 +1,6 @@
 import { HomeIcon, KeyIcon, Mail } from "lucide-react";
 import "@/assets/css/navbar.css";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { LoginDialog } from "./login/Dialog";
 import { Button } from "./ui/button";
@@ -7,6 +8,7 @@ import { Dialog, DialogTrigger } from "./ui/dialog";
 
 export function Navbar() {
 	const nav = useNavigate();
+	const [loginDialog, setLoginDialogState] = useState<boolean>(false);
 
 	return (
 		<nav>
@@ -30,7 +32,10 @@ export function Navbar() {
 				</Button>
 			</span>
 			<span>
-				<Dialog>
+				<Dialog
+					onOpenChange={() => setLoginDialogState((prev) => !prev)}
+					open={loginDialog}
+				>
 					<DialogTrigger
 						render={
 							<Button
@@ -43,7 +48,7 @@ export function Navbar() {
 							</Button>
 						}
 					/>
-					<LoginDialog />
+					<LoginDialog onSuccess={() => setLoginDialogState(false)} />
 				</Dialog>
 			</span>
 		</nav>

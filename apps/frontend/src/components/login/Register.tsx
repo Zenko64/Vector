@@ -36,16 +36,15 @@ export function Register({ onSuccess }: { onSuccess?: () => void }) {
 	async function onSubmit(e: React.SubmitEvent) {
 		e.preventDefault();
 		if (step === 0) {
-			await form.trigger("email");
-			setStep(1);
+			if (await form.trigger("email")) setStep(1);
 			return;
 		} else if (step === 1) {
-			await form.trigger("password");
-			setStep(2);
+			if (await form.trigger("password")) setStep(2);
 			return;
 		}
 
-		if (!(await form.trigger(["name", "username"]))) return;
+		if (!(await form.trigger(["name", "username", "email", "password"])))
+			return;
 
 		const { error } = await authClient.signUp.email(form.getValues());
 		if (error?.code === "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL") {

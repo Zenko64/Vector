@@ -15,11 +15,20 @@ import {
 	FieldGroup,
 	FieldSeparator,
 } from "@/components/ui/field";
+import { toast } from "../ui/toast";
 import { Login } from "./Login";
 import { Register } from "./Register";
 
-export function LoginDialog() {
+export function LoginDialog({ onSuccess }: { onSuccess: () => void }) {
 	const [action, setAction] = useState<"register" | "auth">("auth");
+	const onLoginSuccess = () => {
+		toast.add({ type: "success", title: "Successfully logged in." });
+		onSuccess();
+	};
+	const onRegisterSuccess = () => {
+		toast.add({ type: "success", title: "Successfully logged in." });
+		onSuccess();
+	};
 
 	return (
 		<DialogContent>
@@ -62,8 +71,8 @@ export function LoginDialog() {
 					)}
 				</div>
 
-				{action === "auth" && <Login />}
-				{action === "register" && <Register />}
+				{action === "auth" && <Login onSuccess={onLoginSuccess} />}
+				{action === "register" && <Register onSuccess={onRegisterSuccess} />}
 
 				<FieldSeparator>Or</FieldSeparator>
 				<SocialProviders />
